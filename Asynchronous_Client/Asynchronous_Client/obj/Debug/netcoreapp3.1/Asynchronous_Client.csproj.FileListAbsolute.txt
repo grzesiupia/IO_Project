@@ -1,0 +1,13 @@
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.exe
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.deps.json
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.runtimeconfig.json
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.runtimeconfig.dev.json
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.dll
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\bin\Debug\netcoreapp3.1\Asynchronous_Client.pdb
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.csprojAssemblyReference.cache
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.AssemblyInfoInputs.cache
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.AssemblyInfo.cs
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.csproj.CoreCompileInputs.cache
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.dll
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.pdb
+D:\projekty\IO\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\Asynchronous_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.genruntimeconfig.cache

@@ -1,0 +1,13 @@
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.exe
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.deps.json
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.runtimeconfig.json
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.runtimeconfig.dev.json
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.dll
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\bin\Debug\netcoreapp3.1\Asynchronous_Server.pdb
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.csprojAssemblyReference.cache
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.AssemblyInfoInputs.cache
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.AssemblyInfo.cs
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.csproj.CoreCompileInputs.cache
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.dll
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.pdb
+D:\projekty\IO\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\Asynchronous_Server\obj\Debug\netcoreapp3.1\Asynchronous_Server.genruntimeconfig.cache
