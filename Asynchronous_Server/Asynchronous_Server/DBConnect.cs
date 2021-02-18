@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
 
-namespace Asynchronous_Server
-{
+
     class DBConnect
     {
         private MySqlConnection connection;
@@ -14,15 +13,12 @@ namespace Asynchronous_Server
         private string password;
 
         //Constructor
-        public DBConnect()
-        {
-            Initialize();
-        }
+        public DBConnect() { }
 
         //Initialize values
-        private void Initialize()
+        public void Initialize()
         {
-            server = "127.0.0.1";
+            server = "";
             database = "ioproject";
             uid = "root";
             password = "password";
@@ -78,10 +74,10 @@ namespace Asynchronous_Server
         }
 
         //Insert statement
+
         public void Insert()
         {
-            string query = "INSERT INTO users (user_id, password) VALUES('login', 'haslo')";
-
+            string query = "INSERT IGNORE INTO users (user_id, password) VALUES('login', 'haslo')";
             //open connection
             if (this.OpenConnection() == true)
             {
@@ -99,7 +95,7 @@ namespace Asynchronous_Server
         //Update statement
         public void Update()
         {
-            string query = "UPDATE users SET password='siemasiema2' WHERE user_id='login'";
+            string query = "";
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -122,7 +118,7 @@ namespace Asynchronous_Server
         //Delete statement
         public void Delete()
         {
-            string query = "DELETE FROM users WHERE name='login'";
+            string query = "";
 
             if (this.OpenConnection() == true)
             {
@@ -208,4 +204,3 @@ namespace Asynchronous_Server
         {
         }
     }
-}

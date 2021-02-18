@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronus_Client\\Asynchronus_Client\\Asynchronus_Client.csproj",
-      "projectName": "Asynchronus_Client",
-      "projectPath": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronus_Client\\Asynchronus_Client\\Asynchronus_Client.csproj",
+      "projectUniqueName": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronus_Client\\Asynchronus_Client\\Asynchronous_Client.csproj",
+      "projectName": "Asynchronous_Client",
+      "projectPath": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronus_Client\\Asynchronus_Client\\Asynchronous_Client.csproj",
       "packagesPath": "C:\\Users\\piontek\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronus_Client\\Asynchronus_Client\\obj\\",
       "projectStyle": "PackageReference",

@@ -29,11 +29,15 @@ public class AsynchronousClient
         new ManualResetEvent(false);
     private static ManualResetEvent receiveDone =
         new ManualResetEvent(false);
+    
+    private Socket client;
 
     // The response from the remote device.  
     private static String response = String.Empty;
 
-    private static void StartClient()
+    public AsynchronousClient() {}
+
+    public void StartClient()
     {
         // Connect to a remote device.  
         try
@@ -46,7 +50,7 @@ public class AsynchronousClient
             IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
             // Create a TCP/IP socket.  
-            Socket client = new Socket(ipAddress.AddressFamily,
+            client = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
 
             // Connect to the remote endpoint.  
@@ -64,6 +68,9 @@ public class AsynchronousClient
 
             // Write the response to the console.  
             Console.WriteLine("Response received : {0}", response);
+
+            Send(client, "This is a test<EOF>");
+            sendDone.WaitOne();
 
             // Release the socket.  
             client.Shutdown(SocketShutdown.Both);
@@ -154,7 +161,7 @@ public class AsynchronousClient
         }
     }
 
-    private static void Send(Socket client, String data)
+    public void Send(Socket client, String data)
     {
         // Convert the string data to byte data using ASCII encoding.  
         byte[] byteData = Encoding.ASCII.GetBytes(data);
@@ -182,11 +189,5 @@ public class AsynchronousClient
         {
             Console.WriteLine(e.ToString());
         }
-    }
-
-    public static int Main(String[] args)
-    {
-        StartClient();
-        return 0;
     }
 }
