@@ -8,17 +8,21 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\piontek\\.nuget\\packages\\": {}
+    "C:\\Users\\piontek\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projekty\\IO\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client.csproj",
+      "projectUniqueName": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client.csproj",
       "projectName": "Asynchronous_Client",
-      "projectPath": "D:\\projekty\\IO\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client.csproj",
+      "projectPath": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client.csproj",
       "packagesPath": "C:\\Users\\piontek\\.nuget\\packages\\",
-      "outputPath": "D:\\projekty\\IO\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\Asynchronous_Client\\obj\\",
+      "outputPath": "C:\\Users\\piontek\\Documents\\GitHub\\IO_Project\\Asynchronous_Client\\Asynchronous_Client\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\piontek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -58,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

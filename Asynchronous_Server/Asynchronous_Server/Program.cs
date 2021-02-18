@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Asynchronous_Server;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+
+
 
 public class SynchronousSocketListener
 {
@@ -75,6 +78,8 @@ public class SynchronousSocketListener
 
     public static int Main(String[] args)
     {
+        DBConnect users_db = new DBConnect();
+        users_db.Insert();
         StartListening();
         return 0;
     }
