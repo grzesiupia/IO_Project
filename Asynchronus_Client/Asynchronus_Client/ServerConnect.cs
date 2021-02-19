@@ -35,7 +35,7 @@ public class AsynchronousClient
 
     public Socket client;
 
-    public String recivedData;
+    public String receivedData;
 
     // The response from the remote device.  
     public static String response = String.Empty;
@@ -69,10 +69,11 @@ public class AsynchronousClient
             Send("Test Connection<TST>");
             sendDone.WaitOne();
             // Receive the response from the remote device.
+            receiveDone.WaitOne(500);
             Receive();
             receiveDone.WaitOne();
 
-            Trace.WriteLine("Response received: " + recivedData);
+            Trace.WriteLine("Response received: " + receivedData);
             
         }
         catch (Exception e)
@@ -114,9 +115,9 @@ public class AsynchronousClient
 
     public void Receive()
     {
+        receivedData = "";
         try
         {
-            recivedData = "";
             // Create the state object.  
             StateObject state = new StateObject();
             state.workSocket = client;
@@ -124,7 +125,7 @@ public class AsynchronousClient
             // Begin receiving the data from the remote device.  
             client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(ReceiveCallback), state);
-            recivedData = response;
+            receivedData = response;
         }
         catch (Exception e)
         {
@@ -135,8 +136,7 @@ public class AsynchronousClient
     private static void ReceiveCallback(IAsyncResult ar)
     {
         try
-        {
-            response = "";             
+        {           
             // Retrieve the state object and the client socket
             // from the asynchronous state object.  
             StateObject state = (StateObject)ar.AsyncState;
@@ -151,10 +151,11 @@ public class AsynchronousClient
                 state.sb.Append(Encoding.ASCII.GetString(state.buffer, 0, bytesRead));
 
                 // Get the rest of the data.  
-                client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
-                    new AsyncCallback(ReceiveCallback), state);
+                //client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                //    new AsyncCallback(ReceiveCallback), state);
 
                 // All the data has arrived; put it in response.  
+                
                 if (state.sb.Length > 1)
                 {
                     response = state.sb.ToString();

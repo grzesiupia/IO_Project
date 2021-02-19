@@ -151,15 +151,6 @@ public class SynchronousSocketListener
                             handler.Send(msg);
                         }
                     }
-                    else
-                    {
-                        // Show the data on the console.  
-                        Console.WriteLine("Data received : {0}", data);
-
-                        // Echo the data back to the client.  
-                        msg = Encoding.ASCII.GetBytes(data);
-                        handler.Send(msg);
-                    }
                 }
 
                 handler.Shutdown(SocketShutdown.Both);

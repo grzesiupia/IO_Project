@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
     <Grid>
         <Button x:Name="RegisterButton" Content="Register" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Height="23" Width="100" Click="RegisterButton_Click"/>
         <TextBox x:Name="LoginBox" HorizontalAlignment="Center" Margin="0,147,0,0" Text="Login" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Height="18" GotKeyboardFocus="TextBox_GotKeyboardFocus"/>
@@ -15,7 +16,6 @@
         <Ellipse x:Name="Diode" HorizontalAlignment="Left" Height="19" Margin="324,328,0,0" Fill="Red" VerticalAlignment="Top" Width="19"/>
         <Label Content="Connection with Server" HorizontalAlignment="Left" Margin="343,324,0,0" VerticalAlignment="Top" Width="134"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="248" Password="Password" GotKeyboardFocus="PasswordBox_GotKeyboardFocus"/>
-        <TextBox x:Name="box" HorizontalAlignment="Center" Margin="0,67,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Popup Margin="10,10,0,13" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="194" Height="200" IsOpen="True"/>
 
     </Grid>
