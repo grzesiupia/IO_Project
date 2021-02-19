@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Asynchronus_Client;
+using Asynchronous_Client;
 
 namespace Asynchronus_Client
 {
@@ -25,7 +26,8 @@ namespace Asynchronus_Client
     /// </summary>
     public partial class IOProjectApp : Window
     {
-
+        AES aes = new AES();
+        
         private static ManualResetEvent sendDone = new ManualResetEvent(false);
         private static ManualResetEvent receiveDone = new ManualResetEvent(false);
 
@@ -49,8 +51,7 @@ namespace Asynchronus_Client
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            String data;
-            data = "Closing client<EOF>";
+            String data = "Closing client<EOF>";
             server.Send(data);
             server.StopClient();
         }
@@ -84,8 +85,8 @@ namespace Asynchronus_Client
             }
             else
             {
-                String data;
-                data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<LOG>";
+                String data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<LOG>";
+
                 server.Send(data);
                 sendDone.WaitOne(500);
                 server.Receive();
@@ -127,8 +128,8 @@ namespace Asynchronus_Client
             }
             else
             {
-                String data;
-                data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<REG>";
+                String data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<REG>";
+
                 server.Send(data);
                 sendDone.WaitOne(500);
                 server.Receive();

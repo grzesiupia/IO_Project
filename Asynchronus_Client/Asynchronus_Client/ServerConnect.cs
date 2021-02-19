@@ -5,6 +5,7 @@ using System.Threading;
 using System.Text;
 using Asynchronus_Client;
 using System.Diagnostics;
+using Asynchronous_Client;
 
 // State object for receiving data from remote device.  
 public class StateObject
@@ -21,7 +22,6 @@ public class StateObject
 
 public class AsynchronousClient
 {
-    
     // The port number for the remote device.  
     private const int port = 11000;
 
@@ -65,7 +65,8 @@ public class AsynchronousClient
                 new AsyncCallback(ConnectCallback), client);
             connectDone.WaitOne(2000);
 
-            // Send test data to the remote device.  
+            // Send test data to the remote device. 
+            
             Send("Test Connection<TST>");
             sendDone.WaitOne();
             // Receive the response from the remote device.
@@ -174,6 +175,14 @@ public class AsynchronousClient
     {
         // Convert the string data to byte data using ASCII encoding.  
         byte[] byteData = Encoding.ASCII.GetBytes(data);
+
+        // Begin sending the data to the remote device.  
+        client.BeginSend(byteData, 0, byteData.Length, 0,
+            new AsyncCallback(SendCallback), client);
+    }
+
+    public void Send(byte[] byteData)
+    {
 
         // Begin sending the data to the remote device.  
         client.BeginSend(byteData, 0, byteData.Length, 0,

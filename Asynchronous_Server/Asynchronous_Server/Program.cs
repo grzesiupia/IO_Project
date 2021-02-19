@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Asynchronous_Server;
 
 
 
 public class SynchronousSocketListener
 {
-
+    AES aes = new AES();
 
     // Incoming data from the client.  
     public static string data = null;
@@ -78,18 +79,25 @@ public class SynchronousSocketListener
                     {
                         bool alreadyExist = false;
                         Console.WriteLine("Passes to register: {0}", data);
+                        
                         //data="username;password<REG>
+                     
                         string[] subs = data.Split(';');
+                        
                         //subs[0] = username
                         //subs[1] = password<REG>
+                        
                         int index = subs[1].IndexOf("<");
                         if (index > 0)
                             subs[1] = subs[1].Substring(0, index);
+                        
                         //subs[0] = username
                         //subs[1] = password
+                        
                         Console.WriteLine(subs[0] + " " + subs[1]);
                         List<string>[] pass = db_users.Select();
                         Console.WriteLine("user_id   password");
+                        
                         for (int j = 0; j < pass[0].Count; j++)
                         {
 
@@ -119,17 +127,23 @@ public class SynchronousSocketListener
                         bool alreadyExist = false;
                         
                         //data="username;password<REG>
+                        
                         string[] subs = data.Split(';');
+                        
                         //subs[0] = username
                         //subs[1] = password<REG>
+                        
                         int index = subs[1].IndexOf("<");
                         if (index > 0)
                             subs[1] = subs[1].Substring(0, index);
+                        
                         //subs[0] = username
                         //subs[1] = password
+                        
                         Console.WriteLine("Loging user: {0}", subs[0]);
                         List<string>[] pass = db_users.Select();
                         Console.WriteLine("user_id   password");
+                        
                         for (int j = 0; j < pass[0].Count; j++)
                         {
                             if (pass[0][j] == subs[0])
