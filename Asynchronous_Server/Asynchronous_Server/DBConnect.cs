@@ -18,7 +18,7 @@ using MySql.Data.MySqlClient;
         //Initialize values
         public void Initialize()
         {
-            server = "";
+            server = "127.0.0.1";
             database = "ioproject";
             uid = "root";
             password = "password";
@@ -75,9 +75,9 @@ using MySql.Data.MySqlClient;
 
         //Insert statement
 
-        public void Insert()
+        public void Insert(string user, string password)
         {
-            string query = "INSERT IGNORE INTO users (user_id, password) VALUES('login', 'haslo')";
+            string query = "INSERT IGNORE INTO users (user_id, password) VALUES('" + user + "', '" + password + "')";
             //open connection
             if (this.OpenConnection() == true)
             {

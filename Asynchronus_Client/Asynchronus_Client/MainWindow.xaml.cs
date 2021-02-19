@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,8 @@ namespace Asynchronus_Client
     /// </summary>
     public partial class IOProjectApp : Window
     {
-        public String username { get; set; }
-        public String password { get; set; }
 
-        AsynchronousClient server = new AsynchronousClient();
+        public AsynchronousClient server = new AsynchronousClient();
 
         public IOProjectApp()
         {
@@ -35,6 +34,12 @@ namespace Asynchronus_Client
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             server.StartClient();
+            if(server.isConnected == true)
+            {
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Color.FromRgb(0, 255, 0);
+                Diode.Fill = brush;
+            }
         }
 
         private void TextBox_GotKeyboardFocus(object sender, RoutedEventArgs e)
@@ -53,13 +58,64 @@ namespace Asynchronus_Client
                 passBox.Password = string.Empty;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            String data;
+            data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<LOG>";
+            server.Send(data);
 
-            String data = "";
-            data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString();
-            box.Text = data;
-  
+            server.Receive();
+
+            string recived = server.recivedData;
+            Trace.WriteLine("Response received: " + recived);
+
+            if (recived.IndexOf("<LEN>") > -1)
+            {
+                string message = "Check Username/Password.";
+                string caption = "Error";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBox.Show(message, caption, buttons, icon);
+
+            }
+            else if (recived.IndexOf("<LOG>") > -1)
+            {
+                string message = "Logged in successfully.";
+                string caption = "Success";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBox.Show(message, caption, buttons, icon);
+            }
+        }
+
+        public void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            String data;
+            data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<REG>";
+            
+            server.Send(data);
+            server.Receive();
+
+            string recived = server.recivedData;
+            Trace.WriteLine("Response received: " + recived);
+
+            if (recived.IndexOf("<REN>") > -1)
+            {
+                string message = "User with this name already exist.";
+                string caption = "Error";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBox.Show(message, caption, buttons, icon);
+                
+            }else if(recived.IndexOf("<REG>") > -1)
+            {
+                string message = "User crated succesfully.";
+                string caption = "Success";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBox.Show(message, caption, buttons, icon);
+            }
+
         }
     }
 }
