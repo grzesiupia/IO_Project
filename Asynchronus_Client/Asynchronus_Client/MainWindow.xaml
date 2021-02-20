@@ -16,7 +16,6 @@
         <Ellipse x:Name="Diode" HorizontalAlignment="Left" Height="19" Margin="324,328,0,0" Fill="Red" VerticalAlignment="Top" Width="19"/>
         <Label Content="Connection with Server" HorizontalAlignment="Left" Margin="343,324,0,0" VerticalAlignment="Top" Width="134"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="248" Password="Password" GotKeyboardFocus="PasswordBox_GotKeyboardFocus"/>
-        <Popup Margin="10,10,0,13" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="194" Height="200" IsOpen="True"/>
 
     </Grid>
 </Window>

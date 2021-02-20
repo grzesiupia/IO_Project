@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Asynchronus_Client;
 using Asynchronous_Client;
+using System.Windows.Navigation;
 
 namespace Asynchronus_Client
 {
@@ -85,8 +86,10 @@ namespace Asynchronus_Client
             }
             else
             {
-                String data = LoginBox.Text.ToString() + ";" + PasswordBox.Password.ToString() + "<LOG>";
-
+                string user = LoginBox.Text.ToString();
+                string password = PasswordBox.Password.ToString();
+                String data = user + ";" + password + "<LOG>";
+                
                 server.Send(data);
                 sendDone.WaitOne(500);
                 server.Receive();
@@ -111,6 +114,8 @@ namespace Asynchronus_Client
                     MessageBoxButton buttons = MessageBoxButton.OK;
                     MessageBoxImage icon = MessageBoxImage.Information;
                     MessageBox.Show(message, caption, buttons, icon);
+                    OpenedApp programPage = new OpenedApp(server, user);
+                    this.Content = programPage;
                 }
             }
         }
@@ -149,7 +154,7 @@ namespace Asynchronus_Client
                 }
                 else if (recived.IndexOf("<REG>") > -1)
                 {
-                    string message = "User crated succesfully.";
+                    string message = "User created succesfully.";
                     string caption = "Success";
                     MessageBoxButton buttons = MessageBoxButton.OK;
                     MessageBoxImage icon = MessageBoxImage.Information;

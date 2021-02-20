@@ -96,12 +96,12 @@ public class SynchronousSocketListener
                         
                         Console.WriteLine(subs[0] + " " + subs[1]);
                         List<string>[] pass = db_users.Select();
-                        Console.WriteLine("user_id   password");
+                        Console.WriteLine("user_id   password   balance");
                         
                         for (int j = 0; j < pass[0].Count; j++)
                         {
 
-                            Console.WriteLine(pass[0][j] + "   " + pass[1][j]);
+                            Console.WriteLine(pass[0][j] + "   " + pass[1][j] + "   " + pass[2][j]);
                             if (pass[0][j] == subs[0])
                             {
                                 alreadyExist = true;
@@ -164,6 +164,37 @@ public class SynchronousSocketListener
                             msg = Encoding.ASCII.GetBytes("Logged in successfully<LOG>");
                             handler.Send(msg);
                         }
+                    }else if(data.IndexOf("<DEP>") > -1)
+                    {
+                        //data="user;toDeposit<DEP>
+
+                        string balanceAfterDeposit = "";
+
+                        string[] subs = data.Split(';');
+
+                        //subs[0] = user
+                        //subs[1] = toDeposit<DEP>
+
+                        int index = subs[1].IndexOf("<");
+                        if (index > 0)
+                            subs[1] = subs[1].Substring(0, index);
+
+                        //subs[0] = username
+                        //subs[1] = toDeposit
+
+                        Console.WriteLine("user and balance: {0}", subs[0] + ";" + subs[1]);
+
+                        db_users.Update(subs[1], subs[0]);
+                        List<string>[] pass = db_users.Select();
+                        for(int i = 0; i < pass[0].Count; i++)
+                        {
+                            if(pass[0][i] == subs[0])
+                            {
+                                balanceAfterDeposit = pass[2][i];
+                            }
+                        }
+                        msg = Encoding.ASCII.GetBytes(balanceAfterDeposit + "<DEP>");
+                        handler.Send(msg);
                     }
                 }
 

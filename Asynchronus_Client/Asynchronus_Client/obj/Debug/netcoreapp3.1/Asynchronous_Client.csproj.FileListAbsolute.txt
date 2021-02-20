@@ -17,3 +17,5 @@ C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Clie
 C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.dll
 C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.pdb
 C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Client\obj\Debug\netcoreapp3.1\Asynchronous_Client.genruntimeconfig.cache
+C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Client\obj\Debug\netcoreapp3.1\OpenedApp.g.cs
+C:\Users\piontek\Documents\GitHub\IO_Project\Asynchronus_Client\Asynchronus_Client\obj\Debug\netcoreapp3.1\OpenedApp.baml

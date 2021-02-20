@@ -183,7 +183,6 @@ public class AsynchronousClient
 
     public void Send(byte[] byteData)
     {
-
         // Begin sending the data to the remote device.  
         client.BeginSend(byteData, 0, byteData.Length, 0,
             new AsyncCallback(SendCallback), client);
