@@ -48,6 +48,7 @@ public class SynchronousSocketListener
             while (true)
             {
                 Console.WriteLine("Waiting for a connection...");
+                
                 // Program is suspended while waiting for an incoming connection.  
                 Socket handler = listener.Accept();
                 data = null;

@@ -52,9 +52,12 @@ namespace Asynchronus_Client
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            String data = "Closing client<EOF>";
-            server.Send(data);
-            server.StopClient();
+            if (server.isConnected == true)
+            {
+                String data = "Closing client<EOF>";
+                server.Send(data);
+                server.StopClient();
+            }
         }
 
         private void TextBox_GotKeyboardFocus(object sender, RoutedEventArgs e)
@@ -110,8 +113,6 @@ namespace Asynchronus_Client
                 }
                 else if (recived.IndexOf("<LOG>") > -1)
                 {
-                    
-
                     int index = recived.IndexOf("<");
                     if (index > 0)
                         balance = recived.Substring(0, index);
