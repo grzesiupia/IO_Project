@@ -11,11 +11,11 @@
 
     <Grid>
         <Label Content="Bank" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="40" />
-        <TextBox x:Name="DepositTextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="266,124,0,0" Text="0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="28"/>
+        <TextBox x:Name="DepositTextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="266,124,0,0" Text="0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="28" GotKeyboardFocus="TextBox_GotKeyboardFocus"/>
         <Button x:Name="DepositButton" Content="Deposit" FontSize="16" HorizontalAlignment="Left" Margin="160,120,0,0" VerticalAlignment="Top" Height="36" Width="79" Click="DepositButton_Click"/>
-        <Button x:Name="WithdrawButton" Content="Withdraw" FontSize="16" HorizontalAlignment="Left" Margin="160,180,0,0" VerticalAlignment="Top" Height="36" Width="79"/>
-        <TextBox x:Name="WithdrawTextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="266,184,0,0" Text="0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="28"/>
-        <TextBox x:Name="BalancetextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="434,173,0,0" Text="0" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="38"/>
+        <Button x:Name="WithdrawButton" Content="Withdraw" FontSize="16" HorizontalAlignment="Left" Margin="160,180,0,0" VerticalAlignment="Top" Height="36" Width="79" Click="WithdrawButton_Click"/>
+        <TextBox x:Name="WithdrawTextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="266,184,0,0" Text="0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="28" GotKeyboardFocus="TextBox_GotKeyboardFocus"/>
+        <TextBox x:Name="BalancetextBox" HorizontalAlignment="Left" TextAlignment="Center" Margin="434,173,0,0" Text="0" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="38" IsHitTestVisible="False"/>
         <Label Content="Balance" HorizontalAlignment="Left" Margin="456,118,0,0" VerticalAlignment="Top" FontSize="30" />
 
     </Grid>

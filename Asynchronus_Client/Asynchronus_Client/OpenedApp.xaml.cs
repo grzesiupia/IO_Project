@@ -25,13 +25,15 @@ namespace Asynchronous_Client
 
 
         string user;
-        
+
         AsynchronousClient server;
-        public OpenedApp(AsynchronousClient server, string user)
+        public OpenedApp(AsynchronousClient server, string user, string balance)
         {
             this.user = user;
             this.server = server;
             InitializeComponent();
+
+            BalancetextBox.Text = balance;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -53,7 +55,7 @@ namespace Asynchronous_Client
             string toDeposit = DepositTextBox.Text.ToString();
             String  data = user + ";" + toDeposit + "<DEP>";
             server.Send(data);
-            sendDone.WaitOne(1000);
+            sendDone.WaitOne(500);
             server.Receive();
             receiveDone.WaitOne(500);
             string recived = server.receivedData;
@@ -66,9 +68,51 @@ namespace Asynchronous_Client
 
                 BalancetextBox.Text = recived;
 
+                string message = "Deposit done successfully.";
+                string caption = "Success";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBox.Show(message, caption, buttons, icon);
+
             }
 
             DepositTextBox.Text = "0";
+        }
+
+        private void WithdrawButton_Click(object sender, RoutedEventArgs e)
+        {
+            string toWithdraw = WithdrawTextBox.Text.ToString();
+            String data = user + ";" + toWithdraw + "<WTD>";
+            server.Send(data);
+            sendDone.WaitOne(500);
+            server.Receive();
+            receiveDone.WaitOne(500);
+            string recived = server.receivedData;
+
+            if (recived.IndexOf("<WTD>") > -1)
+            {
+                int index = recived.IndexOf("<");
+                if (index > 0)
+                    recived = recived.Substring(0, index);
+
+                BalancetextBox.Text = recived;
+
+                string message = "Withdraw done successfully.";
+                string caption = "Success";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBox.Show(message, caption, buttons, icon);
+
+            }else if(recived.IndexOf("<WTN>") > -1)
+            {
+                string message = "Not enough money on your account.";
+                string caption = "Error";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBox.Show(message, caption, buttons, icon);
+            }
+
+            WithdrawTextBox.Text = "0";
         }
     }
 }

@@ -86,6 +86,7 @@ namespace Asynchronus_Client
             }
             else
             {
+                string balance = "";
                 string user = LoginBox.Text.ToString();
                 string password = PasswordBox.Password.ToString();
                 String data = user + ";" + password + "<LOG>";
@@ -109,12 +110,18 @@ namespace Asynchronus_Client
                 }
                 else if (recived.IndexOf("<LOG>") > -1)
                 {
+                    
+
+                    int index = recived.IndexOf("<");
+                    if (index > 0)
+                        balance = recived.Substring(0, index);
+
                     string message = "Logged in successfully.";
                     string caption = "Success";
                     MessageBoxButton buttons = MessageBoxButton.OK;
                     MessageBoxImage icon = MessageBoxImage.Information;
                     MessageBox.Show(message, caption, buttons, icon);
-                    OpenedApp programPage = new OpenedApp(server, user);
+                    OpenedApp programPage = new OpenedApp(server, user, balance);
                     this.Content = programPage;
                 }
             }

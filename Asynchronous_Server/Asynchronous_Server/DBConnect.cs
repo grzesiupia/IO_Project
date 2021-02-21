@@ -92,8 +92,8 @@ class DBConnect
         }
     }
 
-    //Update statement
-    public void Update(string balance, string username)
+    //UpdateBalance statement
+    public void UpdateBalance(string balance, string username)
     {
         string query = "UPDATE users SET balance = '" + balance + "' WHERE user_id = '" + username +"'";
 

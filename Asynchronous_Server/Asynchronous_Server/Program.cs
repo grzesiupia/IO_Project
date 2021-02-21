@@ -125,9 +125,9 @@ public class SynchronousSocketListener
                     else if(data.IndexOf("<LOG>") > -1)
                     {
                         bool alreadyExist = false;
-                        
+
                         //data="username;password<REG>
-                        
+                        string userBalance = "";
                         string[] subs = data.Split(';');
                         
                         //subs[0] = username
@@ -148,8 +148,11 @@ public class SynchronousSocketListener
                         {
                             if (pass[0][j] == subs[0])
                             {
-                                if(pass[1][j]==subs[1])
+                                if (pass[1][j] == subs[1])
+                                {
                                     alreadyExist = true;
+                                    userBalance = pass[2][j];
+                                }
                             }
                         }
                         if (alreadyExist == false)
@@ -161,14 +164,19 @@ public class SynchronousSocketListener
                         else
                         {
                             Console.WriteLine("Logged in successfully<LOG>");
-                            msg = Encoding.ASCII.GetBytes("Logged in successfully<LOG>");
+                            msg = Encoding.ASCII.GetBytes(userBalance + "<LOG>");
                             handler.Send(msg);
                         }
-                    }else if(data.IndexOf("<DEP>") > -1)
+                    }
+                    else if(data.IndexOf("<DEP>") > -1)
                     {
                         //data="user;toDeposit<DEP>
 
-                        string balanceAfterDeposit = "";
+                        string beforeString = "";
+                        string afterString = "";
+
+                        int beforeInt = 0;
+                        int afterInt = 0;
 
                         string[] subs = data.Split(';');
 
@@ -183,18 +191,78 @@ public class SynchronousSocketListener
                         //subs[1] = toDeposit
 
                         Console.WriteLine("user and balance: {0}", subs[0] + ";" + subs[1]);
-
-                        db_users.Update(subs[1], subs[0]);
+                        
                         List<string>[] pass = db_users.Select();
+                        
                         for(int i = 0; i < pass[0].Count; i++)
                         {
                             if(pass[0][i] == subs[0])
                             {
-                                balanceAfterDeposit = pass[2][i];
+                                beforeString = pass[2][i];
                             }
                         }
-                        msg = Encoding.ASCII.GetBytes(balanceAfterDeposit + "<DEP>");
+
+                        beforeInt = int.Parse(beforeString);
+
+                        afterInt = beforeInt + int.Parse(subs[1]);
+                        afterString = afterInt.ToString();
+
+                        db_users.UpdateBalance(afterString, subs[0]);
+
+                        msg = Encoding.ASCII.GetBytes(afterString + "<DEP>");
                         handler.Send(msg);
+                    }
+                    else if(data.IndexOf("<WTD>") > -1)
+                    {
+                        //data="user;toWithdraw<WTD>
+
+                        string beforeString = "";
+                        string afterString = "";
+
+                        int beforeInt = 0;
+                        int afterInt = 0;
+
+                        string[] subs = data.Split(';');
+
+                        //subs[0] = user
+                        //subs[1] = toWithdraw<WTD>
+
+                        int index = subs[1].IndexOf("<");
+                        if (index > 0)
+                            subs[1] = subs[1].Substring(0, index);
+
+                        //subs[0] = username
+                        //subs[1] = toWithdraw
+
+                        Console.WriteLine("user and balance: {0}", subs[0] + ";" + subs[1]);
+
+                        
+                        List<string>[] pass = db_users.Select();
+                        for (int i = 0; i < pass[0].Count; i++)
+                        {
+                            if (pass[0][i] == subs[0])
+                            {
+                                beforeString = pass[2][i];
+                            }
+                        }
+
+                        beforeInt = int.Parse(beforeString);
+
+                        if ((beforeInt - int.Parse(subs[1])) >= 0)
+                        {
+                            afterInt = beforeInt - int.Parse(subs[1]);
+                            afterString = afterInt.ToString();
+
+                            db_users.UpdateBalance(afterString, subs[0]);
+
+                            msg = Encoding.ASCII.GetBytes(afterString + "<WTD>");
+                            handler.Send(msg);
+                        }
+                        else
+                        {
+                            msg = Encoding.ASCII.GetBytes("You dont have enough money<WTN>");
+                            handler.Send(msg);
+                        }
                     }
                 }
 
