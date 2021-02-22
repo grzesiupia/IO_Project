@@ -27,7 +27,6 @@ namespace Asynchronus_Client
     /// </summary>
     public partial class IOProjectApp : Window
     {
-        AES aes = new AES();
         
         private static ManualResetEvent sendDone = new ManualResetEvent(false);
         private static ManualResetEvent receiveDone = new ManualResetEvent(false);

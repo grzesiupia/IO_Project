@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using Asynchronous_Server;
 
 
 
 public class SynchronousSocketListener
 {
-    AES aes = new AES();
 
     // Incoming data from the client.  
     public static string data = null;

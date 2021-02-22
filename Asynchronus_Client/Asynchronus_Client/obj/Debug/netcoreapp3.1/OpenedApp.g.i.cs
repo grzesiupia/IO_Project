@@ -117,7 +117,7 @@ namespace Asynchronous_Client {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Asynchronous_Client;V1.0.0.0;component/openedapp.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Asynchronous_Client;component/openedapp.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\OpenedApp.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
